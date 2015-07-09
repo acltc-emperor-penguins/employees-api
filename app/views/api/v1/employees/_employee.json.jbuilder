@@ -1,4 +1,5 @@
 json.id employee.id
+json.full_name employee.full_name
 json.first_name employee.first_name
 json.last_name employee.last_name
 json.email employee.email
@@ -9,5 +10,7 @@ json.addresses employee.addresses do |address|
   json.address_2 address.address_2
   json.city address.city
   json.state address.state
-  json.zip_code address.zip
+  unless address.zip.to_i == 0
+    json.zip_code address.zip
+  end
 end
